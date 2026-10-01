@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muno Folk – Lilin Aromaterapi & Home Fragrance</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f7f0e6;--wax:#efe2cc;--plum:#33202e;--amber:#d9822b;--lav:#d8cdee;--mut:#6d5a66}
+html{scroll-behavior:smooth}
+body{font-family:'Figtree',sans-serif;background:var(--cream);color:var(--plum)}
+h1,h2,h3,h4,.brand{font-family:'Young Serif',serif;font-weight:400}
+section{scroll-margin-top:70px}
+.navbar{background:var(--cream)}
+.brand{display:inline-flex;align-items:center;gap:.65rem;font-size:1.5rem;color:var(--plum);text-decoration:none}
+.brand-logo-slot{display:inline-block;width:2.25rem;height:2.25rem;flex:0 0 2.25rem;object-fit:contain;border-radius:.45rem}
+.navbar .nav-link{color:var(--plum);font-weight:500}
+.navbar .nav-link:hover{color:var(--amber)}
+.btn-amber{background:var(--amber);color:#fff;border:0;border-radius:.6rem;font-weight:700;padding:.65rem 1.4rem}
+.btn-amber:hover,.btn-amber:focus{background:#b96a1c;color:#fff}
+.btn-line{border:2px solid var(--plum);color:var(--plum);border-radius:.6rem;font-weight:700;padding:.6rem 1.4rem}
+.btn-line:hover{background:var(--plum);color:var(--cream)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.ph{display:block;width:100%;object-fit:cover;background:var(--lav);color:var(--plum);font-size:.85rem;text-align:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.08}
+.hero .ph{aspect-ratio:4/5;border-radius:12rem 12rem 1.2rem 1.2rem}
+.lead-s{max-width:32rem;color:var(--mut);font-size:1.15rem}
+.about{background:var(--wax)}
+.fact{border-left:4px solid var(--amber);padding-left:1rem}
+.fact b{display:block;font-family:'Young Serif',serif;font-size:1.6rem;font-weight:400}
+.fcard{background:#fff;border-radius:1rem;overflow:hidden;height:100%;display:flex;flex-direction:column}
+.fcard .ph{aspect-ratio:4/3}
+.fcard .body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;flex:1}
+.tag{font-size:.8rem;color:var(--amber);font-weight:700}
+.price{font-weight:700;font-size:1.1rem}
+.catalog{background:var(--plum);color:var(--cream)}
+.catalog h2{color:#fff}
+.filters .btn{border:1px solid #ffffff55;color:var(--cream);border-radius:50rem;padding:.35rem 1rem;font-weight:500}
+.filters .btn.active,.filters .btn:hover{background:var(--cream);color:var(--plum)}
+.pitem{background:#43293c;border-radius:1rem;overflow:hidden;height:100%;display:flex;flex-direction:column}
+.pitem .ph{aspect-ratio:16/10}
+.pitem .body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;flex:1}
+.pitem h3{font-size:1.2rem;color:#fff}
+.pitem p{color:#e4d6dd;font-size:.92rem}
+.chip{display:inline-block;background:#ffffff1f;border-radius:.4rem;padding:.15rem .55rem;font-size:.78rem;margin:0 .3rem .3rem 0}
+.pitem a{color:#ffc27a;font-weight:700;text-decoration:none;margin-top:auto}
+.pitem a:hover{text-decoration:underline}
+.loc-wrap{background:linear-gradient(135deg,#fff 0%,#f7f0e6 100%);border:1px solid rgba(51,32,46,.08);border-radius:1.7rem;box-shadow:0 14px 30px rgba(51,32,46,.08)}
+.loc-badge{display:inline-flex;align-items:center;gap:.55rem;background:rgba(217,130,43,.12);color:var(--amber);border:1px solid rgba(217,130,43,.24);padding:.45rem .8rem;border-radius:999px;font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+.loc-card{background:#fff;border-radius:1.25rem;border:1px solid rgba(51,32,46,.08);padding:1.5rem;box-shadow:0 10px 24px rgba(51,32,46,.04)}
+.loc-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:1.5rem;align-items:center}
+.loc-info h3{font-size:clamp(2rem,4vw,3.3rem);margin:0 0 .75rem;color:var(--plum)}
+.loc-info p{margin:0;color:var(--mut)}
+.info-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem .95rem;border-radius:999px;border:1px solid rgba(51,32,46,.15);background:rgba(51,32,46,.02);font-weight:600;color:var(--plum)}
+.info-pill strong{font-weight:800}
+.map-action{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border:0;border-radius:.8rem;padding:.85rem 1.25rem;background:var(--plum);color:var(--cream);font-weight:700;box-shadow:0 12px 22px rgba(51,32,46,.12)}
+.map-action:hover{background:var(--amber);color:#fff}
+.map-confirm .modal-content{border:none;border-radius:1.2rem;overflow:hidden}
+.map-confirm .modal-header{border-bottom:0;padding:1.2rem 1.2rem 0}
+.map-confirm .modal-body{padding:1rem 1.2rem 1.1rem}
+.map-confirm .modal-footer{border-top:0;padding:0 1.2rem 1.2rem;gap:.75rem}
+.steps{list-style:none;padding:0;margin:0}
+.steps li{display:flex;gap:1rem;margin-bottom:1.2rem}
+.steps span{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--amber);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.order-box{background:#fff;border-radius:1.2rem;padding:1.6rem;box-shadow:0 10px 30px #33202e1a}
+.order-box .form-control,.order-box .form-select{border-radius:.6rem;border-color:#d9cbb6;padding:.6rem .9rem}
+.order-box .form-control:focus,.order-box .form-select:focus{border-color:var(--amber);box-shadow:0 0 0 .2rem #d9822b33}
+.pay-opt{border:2px solid var(--wax);border-radius:.8rem;padding:.7rem 1rem;cursor:pointer;display:flex;align-items:center;gap:.7rem;font-weight:700}
+.pay-opt:has(input:checked){border-color:var(--amber);background:#fff7ec}
+.pay-group{font-size:.85rem;font-weight:700;color:var(--mut);margin:.9rem 0 .4rem}
+.receipt{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}
+.receipt hr{border-top:2px dashed #999;opacity:1}
+footer{background:#221420;color:#cdbbc5}
+footer a{color:#fff;text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media print{body *{visibility:hidden}#receipt,#receipt *{visibility:visible}#receipt{position:absolute;left:0;top:0;width:100%}}
+@media (max-width:767.98px){
+  .row.g-5{--bs-gutter-x:1.5rem}
+  .loc-grid{grid-template-columns:minmax(0,1fr)}
+  .loc-card{min-width:0}
+  .loc-card .info-pill{flex-wrap:wrap;gap:.25rem .6rem}
+  .order-box{padding:1.2rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top py-2">
+  <div class="container">
+    <a class="brand" href="#">
+      <img class="brand-logo-slot" src="FOTO/PNGFOTO/LogoMunoFolk.png" alt="Logo Muno Folk">
+      <span>Muno Folk</span>
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+      <ul class="navbar-nav align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="#unggulan">Unggulan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#katalog">Semua Produk</a></li>
+        <li class="nav-item"><a class="nav-link" href="#lokasi">Lokasi</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kontak</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="https://api.whatsapp.com/send?phone=628112267878" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a class="dropdown-item" href="https://shopee.co.id/munofolk" target="_blank" rel="noopener noreferrer">Shopee</a></li>
+            <li><a class="dropdown-item" href="https://www.tokopedia.com/munofolk" target="_blank" rel="noopener noreferrer">Tokopedia</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ms-lg-2"><a class="btn btn-amber btn-sm px-3" href="#pesan">Pesan</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero container py-5">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-7">
+      <h1>Jeda kecil untuk kepala yang penuh.</h1>
+      <p class="lead-s mt-3 mb-4">Lilin aromaterapi dan wewangian rumah dari 100% soy wax, dibuat di Bandung untuk kamu yang sibuk di kota dan butuh waktu untuk tenang.</p>
+      <a href="#pesan" class="btn btn-amber btn-lg me-2 mb-2">Pesan sekarang</a>
+      <a href="#katalog" class="btn btn-line btn-lg mb-2">Lihat semua produk</a>
+    </div>
+    <div class="col-lg-5 col-md-8 mx-auto">
+      <img src="FOTO/PNGFOTO/FotoBeranda.png" alt="Lilin aromaterapi Muno Folk menyala di meja kerja" class="ph">
+    </div>
+  </div>
+</header>
+
+<section id="tentang" class="about py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="mb-3">Dari Bandung, sejak 2018</h2>
+        <p class="mb-0">Muno Folk membuat produk relaksasi dan meditasi untuk orang-orang produktif di perkotaan. Lilin kami memakai soy wax murni tanpa parafin, jadi asapnya lebih bersih, aman dihirup di dalam ruangan, dan ramah lingkungan.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-4">
+          <div class="col-sm-4"><div class="fact"><b>100%</b>soy wax, tanpa parafin</div></div>
+          <div class="col-sm-4"><div class="fact"><b>40+</b>varian aroma</div></div>
+          <div class="col-sm-4"><div class="fact"><b>Juara 3</b>Pengusaha Muda BRIlian 2020</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="unggulan" class="container py-5">
+  <h2 class="mb-1">Paling sering dipesan</h2>
+  <p class="text-muted mb-4">Tiga produk yang paling laris di Muno Folk.</p>
+  <div class="row g-4" id="featured"></div>
+</section>
+
+<section id="katalog" class="catalog py-5">
+  <div class="container">
+    <h2 class="mb-1">Semua produk Muno Folk</h2>
+    <p class="mb-4" style="color:#e4d6dd">Dari lilin sampai parfum tubuh, semuanya dengan aroma yang menenangkan.</p>
+    <div class="filters d-flex flex-wrap gap-2 mb-4" id="filters"></div>
+    <div class="row g-4" id="catalogGrid"></div>
+  </div>
+</section>
+
+<section id="pesan" class="container py-5">
+  <div class="row g-5 align-items-start">
+    <div class="col-lg-5">
+      <h2 class="mb-3">Pesan sekarang</h2>
+      <p class="text-muted mb-4">Isi form, pilih pembayaran, dan struk langsung muncul.</p>
+      <ol class="steps">
+        <li><span>1</span><div><b>Pilih produk dan varian</b><br><small class="text-muted">Tentukan aroma dan jumlahnya.</small></div></li>
+        <li><span>2</span><div><b>Bayar</b><br><small class="text-muted">DANA, GoPay, Google Pay, atau transfer bank.</small></div></li>
+        <li><span>3</span><div><b>Terima struk</b><br><small class="text-muted">Simpan atau cetak sebagai bukti pesanan.</small></div></li>
+      </ol>
+    </div>
+    <div class="col-lg-7">
+      <form id="orderForm" class="order-box" novalidate>
+        <div class="row g-3">
+          <div class="col-md-6"><label class="form-label fw-bold" for="fProduk">Produk</label><select id="fProduk" class="form-select"><option value="">Pilih produk</option></select></div>
+          <div class="col-md-6"><label class="form-label fw-bold" for="fVarian">Varian aroma</label><select id="fVarian" class="form-select"><option value="">Pilih varian</option></select></div>
+          <div class="col-4"><label class="form-label fw-bold" for="fQty">Jumlah</label><input id="fQty" type="number" min="1" max="50" value="1" class="form-control"></div>
+          <div class="col-8"><label class="form-label fw-bold">Harga satuan</label><div class="form-control bg-light" id="fHarga">Rp0</div></div>
+          <div class="col-md-6"><label class="form-label fw-bold" for="fNama">Nama lengkap</label><input id="fNama" class="form-control"></div>
+          <div class="col-md-6"><label class="form-label fw-bold" for="fHp">No. WhatsApp</label><input id="fHp" type="tel" class="form-control"></div>
+          <div class="col-12"><label class="form-label fw-bold" for="fAlamat">Alamat pengiriman</label><textarea id="fAlamat" rows="2" class="form-control"></textarea></div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center border-top mt-4 pt-3 fs-5"><span>Total</span><b id="fTotal">Rp0</b></div>
+        <div id="fErr" class="alert alert-warning py-2 mt-3 mb-0 d-none"></div>
+        <button type="submit" class="btn btn-amber w-100 mt-3 py-2">Pesan</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="lokasi" class="py-5">
+  <div class="container">
+    <div class="loc-wrap p-4 p-md-5">
+      <div class="loc-grid">
+        <div class="loc-info">
+          <div class="loc-badge">📍 Lokasi toko</div>
+          <h3 class="mt-3">Muno Folk</h3>
+          <p class="mb-4">Kunjungi kami di lokasi berikut untuk melihat produk secara langsung dan menikmati aroma sebelum membeli.</p>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <div class="info-pill"><strong>Alamat</strong> Sekejati, Buahbatu</div>
+            <div class="info-pill"><strong>Bandung</strong> Jawa Barat</div>
+          </div>
+          <button id="btnMap" class="map-action" type="button" aria-label="Buka lokasi di Google Maps">
+            Buka di Google Maps
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <div class="loc-card">
+          <div class="small text-uppercase fw-bold mb-2" style="color:var(--amber);letter-spacing:.12em;">Alamat kami</div>
+          <p class="mb-3" style="font-size:1.05rem;font-weight:600;color:var(--plum)">Jl. Jupiter XIII No. G2/21 Sekejati, Kec. Buahbatu, Kota Bandung, Jawa Barat 40286</p>
+          <div class="d-grid gap-2">
+            <div class="info-pill justify-content-between"><span>Jam operasional</span><strong>08.00 - 20.00</strong></div>
+            <div class="info-pill justify-content-between"><span>Area</span><strong>Bandung</strong></div>
+            <div class="info-pill justify-content-between"><span>Menuju</span><strong>Google Maps</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer id="kontak" class="pt-5 pb-3">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5">
+        <div class="brand text-white mb-2">Muno Folk</div>
+        <p class="small">Scented candle &amp; home fragrance asli Indonesia. Didirikan di Bandung, Jawa Barat sejak 2018.</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h6 class="text-white">Jelajahi</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#unggulan">Produk unggulan</a></li>
+          <li><a href="#katalog">Semua produk</a></li>
+          <li><a href="#pesan">Pesan</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-4">
+        <h6 class="text-white">Temukan kami</h6>
+        <ul class="list-unstyled small">
+          <li><a href="https://munofolk.co.id/" target="_blank" rel="noopener">munofolk.co.id</a></li>
+          <li><a href="https://www.tokopedia.com/munofolk" target="_blank" rel="noopener">Tokopedia</a></li>
+          <li><a href="https://shopee.co.id/munofolk" target="_blank" rel="noopener">Shopee</a></li>
+          <li><a href="https://take.app/munofolk" target="_blank" rel="noopener">take.app/munofolk</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr style="border-color:#ffffff33">
+    <p class="small text-center mb-0">&copy; 2026 Muno Folk. Halaman ini adalah desain landing page; pembayaran hanya simulasi.</p>
+  </div>
+</footer>
+
+<div class="modal fade" id="payModal" tabindex="-1" aria-labelledby="payTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0"><h5 class="modal-title" id="payTitle">Pilih pembayaran</h5><button class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button></div>
+      <div class="modal-body pt-0">
+        <div class="d-flex justify-content-between"><span>Total bayar</span><b id="payTotal"></b></div>
+        <div class="pay-group">Dompet digital</div>
+        <div class="d-grid gap-2">
+          <label class="pay-opt"><input type="radio" name="pay" value="DANA"> DANA</label>
+          <label class="pay-opt"><input type="radio" name="pay" value="GoPay"> GoPay</label>
+          <label class="pay-opt"><input type="radio" name="pay" value="Google Pay"> Google Pay</label>
+        </div>
+        <div class="pay-group">Transfer bank</div>
+        <div class="d-grid gap-2">
+          <label class="pay-opt"><input type="radio" name="pay" value="Bank BCA"> BCA</label>
+          <label class="pay-opt"><input type="radio" name="pay" value="Bank BRI"> BRI</label>
+          <label class="pay-opt"><input type="radio" name="pay" value="Bank Mandiri"> Mandiri</label>
+          <label class="pay-opt"><input type="radio" name="pay" value="Bank BNI"> BNI</label>
+        </div>
+        <div id="payErr" class="text-danger small mt-2 d-none">Pilih salah satu metode pembayaran.</div>
+      </div>
+      <div class="modal-footer border-0"><button id="btnBayar" class="btn btn-amber w-100">Bayar sekarang</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="receiptModal" tabindex="-1" aria-labelledby="rcTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <div class="text-center mb-3"><div class="display-6" style="color:#1c9c5b" aria-hidden="true">&#10003;</div><h5 id="rcTitle">Pembayaran berhasil</h5></div>
+        <div id="receipt" class="receipt border rounded-3 p-3 bg-white"></div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-line" onclick="window.print()">Cetak struk</button>
+        <button class="btn btn-amber" data-bs-dismiss="modal">Selesai</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade map-confirm" id="mapConfirmModal" tabindex="-1" aria-labelledby="mapConfirmTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mapConfirmTitle">Keluar dari halaman?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-0">Kamu akan dibawa ke Google Maps untuk melihat lokasi toko Muno Folk. Lanjutkan?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-line" data-bs-dismiss="modal">Batal</button>
+        <button id="confirmMapBtn" type="button" class="btn btn-amber">Ya, lanjutkan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const rp = n => "Rp" + n.toLocaleString("id-ID");
+const TOKO = "https://www.tokopedia.com/munofolk";
+
+/* Produk unggulan (bisa dipesan) */
+const DATA = {
+  candle:{nama:"Organic Scented Candle 75ml",tag:"Classic Scents",img:"FOTO/PNGFOTO/ScantedGlassProdukUnggulan.png",harga:"Rp31.310 – Rp36.900",
+    desc:"Gelas kaca transparan dengan sumbu katun organik. Pas untuk meja kerja atau kamar tidur.",
+    varian:{"Lavender":36900,"Spa Day":36900,"Comforting":31310}},
+  diffuser:{nama:"Premium Reed Diffuser 50ml",tag:"Adventure Aromas",img:"FOTO/PNGFOTO/ReedDiffuserProdukUnggulan.png",harga:"Rp45.000 – Rp59.000",
+    desc:"Pengharum tanpa api dengan stik rotan alami. Aman ditinggal tidur, cocok untuk ruang tamu atau kamar mandi.",
+    varian:{"Midnight Hug":59000,"Calm Ritual":45000,"Zen Garden":45000}},
+  bigjar:{nama:"Big Jar 2 Sumbu 360ml",tag:"Luxury / Seasonal",img:"FOTO/PNGFOTO/BigJarProdukUnggulan.png",harga:"Rp132.610 – Rp149.000",
+    desc:"Stoples kaca besar dengan dua sumbu. Aromanya menyebar luas di ruang keluarga, studio, atau kantor.",
+    varian:{"Warm Haven":149000}}
+};
+$("featured").innerHTML = Object.entries(DATA).map(([k,p]) => `
+  <div class="col-md-6 col-lg-4"><div class="fcard">
+    <img src="${p.img}" alt="${p.nama}" class="ph" loading="lazy">
+    <div class="body">
+      <span class="tag">${p.tag}</span>
+      <h3 class="h5 mt-1">${p.nama}</h3>
+      <p class="small text-muted">${p.desc}</p>
+      <p class="small mb-3">Varian: ${Object.keys(p.varian).join(", ")}</p>
+      <div class="price mt-auto mb-3">${p.harga}</div>
+      <button class="btn btn-amber w-100" onclick="pilih('${k}')">Pesan</button>
+    </div></div></div>`).join("");
+
+/* Katalog lengkap */
+const GROUPS = ["Semua","Lilin","Pengharum ruangan","Meditasi","Mobil & tubuh"];
+const CAT = [
+ {g:"Lilin",n:"Lilin Aromaterapi",img:"FOTO/PNGFOTO/LilinAromaterapiKatalogMenu.png",chips:["Travel Size 60gr/75ml","Standard Jar 120gr","Big Jar 2 Sumbu 360ml"],d:"Soy wax 100% tanpa parafin dalam gelas kaca estetik. Pilih ukuran sesuai ruangan, dari kamar hotel sampai studio kerja."},
+ {g:"Pengharum ruangan",n:"Reed Diffuser",img:"FOTO/PNGFOTO/ReedDiffuserProdukKatalogMenu.png",chips:["Botol 50ml","Botol 100ml","Refill 100ml"],d:"Wangi menyebar konstan lewat stik rotan alami, tanpa api dan tanpa listrik. Tersedia refill yang lebih ekonomis."},
+ {g:"Pengharum ruangan",n:"Room & Linen Spray",img:"FOTO/PNGFOTO/Room&LinenSreyKatalogMenu.png",chips:["100ml"],d:"Semprot untuk menyegarkan udara, gorden, sprei, sofa, hingga sajadah secara instan."},
+ {g:"Pengharum ruangan",n:"Scented Wax Melts",img:"FOTO/PNGFOTO/ScantedWaxMeltKatalogMenu.png",chips:["Soy wax tanpa sumbu"],d:"Kepingan soy wax wangi. Lelehkan di tungku keramik dengan tealight atau di pemanas listrik aromaterapi."},
+ {g:"Pengharum ruangan",n:"Scented Paper",img:"FOTO/Scentedpaper.jfif",chips:["Kertas wangi gantung"],d:"Lembaran tebal berparfum untuk area tertutup kecil seperti lemari pakaian, laci, dan tas."},
+ {g:"Meditasi",n:"Incense Stick",img:"FOTO/PNGFOTO/DiffuserStickAtauIncenseStickKatalogMenu.png",chips:["Dupa stik modern"],d:"Dupa dengan formula wewangian modern untuk meditasi, yoga, dan ritual menenangkan pikiran di rumah."},
+ {g:"Mobil & tubuh",n:"Car Diffuser",img:"FOTO/CarDiffuser.jfif",chips:["Botol kaca gantung"],d:"Pewangi gantung berbotol kaca kecil yang aman dipakai di kabin mobil agar tetap segar alami."},
+ {g:"Mobil & tubuh",n:"Eau De Parfum",img:"FOTO/EauDeParfumKatalogMenu.jfif",chips:["Parfum tubuh"],d:"Parfum tubuh dengan karakter aroma menenangkan, senada dengan wewangian rumah Muno Folk."}
+];
+$("filters").innerHTML = GROUPS.map((g,i) => `<button class="btn ${i?"":"active"}" data-g="${g}">${g}</button>`).join("");
+function renderCat(g){
+  $("catalogGrid").innerHTML = CAT.filter(p => g==="Semua" || p.g===g).map(p => `
+   <div class="col-md-6 col-lg-4"><div class="pitem">
+    <img src="${p.img}" alt="${p.n} Muno Folk" class="ph" loading="lazy">
+    <div class="body"><h3>${p.n}</h3>
+     <div class="mb-2">${p.chips.map(c => `<span class="chip">${c}</span>`).join("")}</div>
+     <p>${p.d}</p>
+     <a href="${TOKO}" target="_blank" rel="noopener">Lihat di Tokopedia</a>
+    </div></div></div>`).join("");
+}
+$("filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if(!b) return;
+  document.querySelectorAll("#filters .btn").forEach(x => x.classList.toggle("active", x===b));
+  renderCat(b.dataset.g);
+});
+renderCat("Semua");
+
+/* Form pesanan */
+Object.entries(DATA).forEach(([k,v]) => $("fProduk").add(new Option(v.nama, k)));
+function isiVarian(){
+  const p = DATA[$("fProduk").value];
+  $("fVarian").length = 1;
+  if(p) Object.entries(p.varian).forEach(([n,h]) => $("fVarian").add(new Option(`${n} (${rp(h)})`, n)));
+  hitung();
+}
+function hitung(){
+  const p = DATA[$("fProduk").value], v = $("fVarian").value;
+  const harga = p && v ? p.varian[v] : 0;
+  const qty = Math.max(1, parseInt($("fQty").value) || 1);
+  $("fHarga").textContent = rp(harga);
+  $("fTotal").textContent = rp(harga * qty);
+  return {harga, qty};
+}
+function pilih(k){ $("fProduk").value = k; isiVarian(); $("pesan").scrollIntoView(); $("fVarian").focus({preventScroll:true}); }
+$("fProduk").addEventListener("change", isiVarian);
+$("fVarian").addEventListener("change", hitung);
+$("fQty").addEventListener("input", hitung);
+
+const payModal = new bootstrap.Modal($("payModal"));
+const rcModal = new bootstrap.Modal($("receiptModal"));
+const mapConfirmModal = new bootstrap.Modal($("mapConfirmModal"));
+const MAP_URL = "https://www.google.com/maps/search/Jl.+Jupiter+XIII+No.+G2%2F21+Sekejati,+Buahbatu,+Bandung./@-6.8878336,107.5314688,14z?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D";
+let order = null;
+
+const openMap = () => {
+  window.open(MAP_URL, "_blank", "noopener,noreferrer");
+  mapConfirmModal.hide();
+};
+
+const btnMap = document.getElementById("btnMap");
+if (btnMap) {
+  btnMap.addEventListener("click", () => mapConfirmModal.show());
+}
+
+document.getElementById("confirmMapBtn").addEventListener("click", openMap);
+
+$("orderForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const {harga, qty} = hitung();
+  const nama = $("fNama").value.trim(), hp = $("fHp").value.trim(), alamat = $("fAlamat").value.trim();
+  let msg = "";
+  if(!$("fProduk").value || !$("fVarian").value) msg = "Pilih produk dan varian aroma.";
+  else if(!nama || !alamat) msg = "Isi nama dan alamat pengiriman.";
+  else if(!/^[0-9+\-\s]{9,16}$/.test(hp)) msg = "Isi nomor WhatsApp yang valid.";
+  $("fErr").textContent = msg; $("fErr").classList.toggle("d-none", !msg);
+  if(msg) return;
+  order = {produk:DATA[$("fProduk").value].nama, varian:$("fVarian").value, harga, qty, total:harga*qty, nama, hp, alamat};
+  $("payTotal").textContent = rp(order.total);
+  $("payErr").classList.add("d-none");
+  document.querySelectorAll('input[name="pay"]').forEach(r => r.checked = false);
+  payModal.show();
+});
+
+$("btnBayar").addEventListener("click", () => {
+  const sel = document.querySelector('input[name="pay"]:checked');
+  if(!sel){ $("payErr").classList.remove("d-none"); return; }
+  const btn = $("btnBayar");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Memproses...';
+  setTimeout(() => {
+    btn.disabled = false; btn.textContent = "Bayar sekarang";
+    tampilStruk(sel.value);
+    $("payModal").addEventListener("hidden.bs.modal", () => rcModal.show(), {once:true});
+    payModal.hide();
+    $("orderForm").reset(); isiVarian();
+  }, 1600);
+});
+
+function tampilStruk(metode){
+  const now = new Date();
+  const no = "MF-" + now.toISOString().slice(0,10).replace(/-/g,"") + "-" + Math.floor(1000 + Math.random()*9000);
+  const tgl = now.toLocaleString("id-ID", {dateStyle:"long", timeStyle:"short"});
+  const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  $("receipt").innerHTML = `
+    <div class="text-center fw-bold">MUNO FOLK</div>
+    <div class="text-center small">Bandung, Jawa Barat</div><hr>
+    <div>No. Pesanan : ${no}</div>
+    <div>Tanggal     : ${tgl}</div>
+    <div>Pelanggan   : ${esc(order.nama)}</div>
+    <div>WhatsApp    : ${esc(order.hp)}</div>
+    <div>Kirim ke    : ${esc(order.alamat)}</div><hr>
+    <div class="fw-bold">${order.produk}</div>
+    <div>Varian: ${order.varian}</div>
+    <div class="d-flex justify-content-between"><span>${order.qty} x ${rp(order.harga)}</span><span>${rp(order.total)}</span></div><hr>
+    <div class="d-flex justify-content-between fw-bold"><span>TOTAL</span><span>${rp(order.total)}</span></div>
+    <div class="d-flex justify-content-between"><span>Metode</span><span>${metode}</span></div>
+    <div class="d-flex justify-content-between"><span>Status</span><span class="fw-bold" style="color:#1c9c5b">LUNAS</span></div><hr>
+    <div class="text-center small">Terima kasih sudah memesan.</div>`;
+
+  
+}
+isiVarian();
+</script>
+</body>
+</html>
