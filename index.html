@@ -90,7 +90,7 @@ footer a:hover{text-decoration:underline}
 <nav class="navbar navbar-expand-lg sticky-top py-2">
   <div class="container">
     <a class="brand" href="#">
-      <img class="brand-logo-slot" src="FOTO/PNGFOTO/LogoMunoFolk.png" alt="Logo Muno Folk">
+      <img class="brand-logo-slot" src="LogoMunoFolk.png" alt="Logo Muno Folk">
       <span>Muno Folk</span>
     </a>
     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Menu"><span class="navbar-toggler-icon"></span></button>
@@ -123,7 +123,7 @@ footer a:hover{text-decoration:underline}
       <a href="#katalog" class="btn btn-line btn-lg mb-2">Lihat semua produk</a>
     </div>
     <div class="col-lg-5 col-md-8 mx-auto">
-      <img src="FOTO/PNGFOTO/FotoBeranda.png" alt="Lilin aromaterapi Muno Folk menyala di meja kerja" class="ph">
+      <img src="FotoBeranda.png" alt="Lilin aromaterapi Muno Folk menyala di meja kerja" class="ph">
     </div>
   </div>
 </header>
@@ -319,22 +319,24 @@ footer a:hover{text-decoration:underline}
 const $ = id => document.getElementById(id);
 const rp = n => "Rp" + n.toLocaleString("id-ID");
 const TOKO = "https://www.tokopedia.com/munofolk";
+const FALLBACK_PHOTO = "https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=900&q=80";
+const imgTag = (src, alt) => `<img src="${src}" alt="${alt}" class="ph" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_PHOTO}';">`;
 
 /* Produk unggulan (bisa dipesan) */
 const DATA = {
-  candle:{nama:"Organic Scented Candle 75ml",tag:"Classic Scents",img:"FOTO/PNGFOTO/ScantedGlassProdukUnggulan.png",harga:"Rp31.310 – Rp36.900",
+  candle:{nama:"Organic Scented Candle 75ml",tag:"Classic Scents",img:"ScantedGlassProdukUnggulan.png",harga:"Rp31.310 – Rp36.900",
     desc:"Gelas kaca transparan dengan sumbu katun organik. Pas untuk meja kerja atau kamar tidur.",
     varian:{"Lavender":36900,"Spa Day":36900,"Comforting":31310}},
-  diffuser:{nama:"Premium Reed Diffuser 50ml",tag:"Adventure Aromas",img:"FOTO/PNGFOTO/ReedDiffuserProdukUnggulan.png",harga:"Rp45.000 – Rp59.000",
+  diffuser:{nama:"Premium Reed Diffuser 50ml",tag:"Adventure Aromas",img:"ReedDiffuserProdukUnggulan.png",harga:"Rp45.000 – Rp59.000",
     desc:"Pengharum tanpa api dengan stik rotan alami. Aman ditinggal tidur, cocok untuk ruang tamu atau kamar mandi.",
     varian:{"Midnight Hug":59000,"Calm Ritual":45000,"Zen Garden":45000}},
-  bigjar:{nama:"Big Jar 2 Sumbu 360ml",tag:"Luxury / Seasonal",img:"FOTO/PNGFOTO/BigJarProdukUnggulan.png",harga:"Rp132.610 – Rp149.000",
+  bigjar:{nama:"Big Jar 2 Sumbu 360ml",tag:"Luxury / Seasonal",img:"BigJarProdukUnggulan.png",harga:"Rp132.610 – Rp149.000",
     desc:"Stoples kaca besar dengan dua sumbu. Aromanya menyebar luas di ruang keluarga, studio, atau kantor.",
     varian:{"Warm Haven":149000}}
 };
 $("featured").innerHTML = Object.entries(DATA).map(([k,p]) => `
   <div class="col-md-6 col-lg-4"><div class="fcard">
-    <img src="${p.img}" alt="${p.nama}" class="ph" loading="lazy">
+    ${imgTag(p.img, p.nama)}
     <div class="body">
       <span class="tag">${p.tag}</span>
       <h3 class="h5 mt-1">${p.nama}</h3>
@@ -347,24 +349,24 @@ $("featured").innerHTML = Object.entries(DATA).map(([k,p]) => `
 /* Katalog lengkap */
 const GROUPS = ["Semua","Lilin","Pengharum ruangan","Meditasi","Mobil & tubuh"];
 const CAT = [
- {g:"Lilin",n:"Lilin Aromaterapi",img:"FOTO/PNGFOTO/LilinAromaterapiKatalogMenu.png",chips:["Travel Size 60gr/75ml","Standard Jar 120gr","Big Jar 2 Sumbu 360ml"],d:"Soy wax 100% tanpa parafin dalam gelas kaca estetik. Pilih ukuran sesuai ruangan, dari kamar hotel sampai studio kerja."},
- {g:"Pengharum ruangan",n:"Reed Diffuser",img:"FOTO/PNGFOTO/ReedDiffuserProdukKatalogMenu.png",chips:["Botol 50ml","Botol 100ml","Refill 100ml"],d:"Wangi menyebar konstan lewat stik rotan alami, tanpa api dan tanpa listrik. Tersedia refill yang lebih ekonomis."},
- {g:"Pengharum ruangan",n:"Room & Linen Spray",img:"FOTO/PNGFOTO/Room&LinenSreyKatalogMenu.png",chips:["100ml"],d:"Semprot untuk menyegarkan udara, gorden, sprei, sofa, hingga sajadah secara instan."},
- {g:"Pengharum ruangan",n:"Scented Wax Melts",img:"FOTO/PNGFOTO/ScantedWaxMeltKatalogMenu.png",chips:["Soy wax tanpa sumbu"],d:"Kepingan soy wax wangi. Lelehkan di tungku keramik dengan tealight atau di pemanas listrik aromaterapi."},
- {g:"Pengharum ruangan",n:"Scented Paper",img:"FOTO/Scentedpaper.jfif",chips:["Kertas wangi gantung"],d:"Lembaran tebal berparfum untuk area tertutup kecil seperti lemari pakaian, laci, dan tas."},
- {g:"Meditasi",n:"Incense Stick",img:"FOTO/PNGFOTO/DiffuserStickAtauIncenseStickKatalogMenu.png",chips:["Dupa stik modern"],d:"Dupa dengan formula wewangian modern untuk meditasi, yoga, dan ritual menenangkan pikiran di rumah."},
- {g:"Mobil & tubuh",n:"Car Diffuser",img:"FOTO/CarDiffuser.jfif",chips:["Botol kaca gantung"],d:"Pewangi gantung berbotol kaca kecil yang aman dipakai di kabin mobil agar tetap segar alami."},
- {g:"Mobil & tubuh",n:"Eau De Parfum",img:"FOTO/EauDeParfumKatalogMenu.jfif",chips:["Parfum tubuh"],d:"Parfum tubuh dengan karakter aroma menenangkan, senada dengan wewangian rumah Muno Folk."}
+ {g:"Lilin",n:"Lilin Aromaterapi",img:"LilinAromaterapiKatalogMenu.png",chips:["Travel Size 60gr/75ml","Standard Jar 120gr","Big Jar 2 Sumbu 360ml"],d:"Soy wax 100% tanpa parafin dalam gelas kaca estetik. Pilih ukuran sesuai ruangan, dari kamar hotel sampai studio kerja."},
+ {g:"Pengharum ruangan",n:"Reed Diffuser",img:"ReedDiffuserProdukKatalogMenu.png",chips:["Botol 50ml","Botol 100ml","Refill 100ml"],d:"Wangi menyebar konstan lewat stik rotan alami, tanpa api dan tanpa listrik. Tersedia refill yang lebih ekonomis."},
+ {g:"Pengharum ruangan",n:"Room & Linen Spray",img:"Room&LinenSreyKatalogMenu.png",chips:["100ml"],d:"Semprot untuk menyegarkan udara, gorden, sprei, sofa, hingga sajadah secara instan."},
+ {g:"Pengharum ruangan",n:"Scented Wax Melts",img:"ScantedWaxMeltKatalogMenu.png",chips:["Soy wax tanpa sumbu"],d:"Kepingan soy wax wangi. Lelehkan di tungku keramik dengan tealight atau di pemanas listrik aromaterapi."},
+ {g:"Pengharum ruangan",n:"Scented Paper",img:"ScentedPaperKatalogMenu.png",chips:["Kertas wangi gantung"],d:"Lembaran tebal berparfum untuk area tertutup kecil seperti lemari pakaian, laci, dan tas."},
+ {g:"Meditasi",n:"Incense Stick",img:"DiffuserStickAtauIncenseStickKatalogMenu.png",chips:["Dupa stik modern"],d:"Dupa dengan formula wewangian modern untuk meditasi, yoga, dan ritual menenangkan pikiran di rumah."},
+ {g:"Mobil & tubuh",n:"Car Diffuser",img:"CarDiffuserKatalogMenu.png",chips:["Botol kaca gantung"],d:"Pewangi gantung berbotol kaca kecil yang aman dipakai di kabin mobil agar tetap segar alami."},
+ {g:"Mobil & tubuh",n:"Eau De Parfum",img:"EauDeParfumKatalogMenu.png",chips:["Parfum tubuh"],d:"Parfum tubuh dengan karakter aroma menenangkan, senada dengan wewangian rumah Muno Folk."}
 ];
 $("filters").innerHTML = GROUPS.map((g,i) => `<button class="btn ${i?"":"active"}" data-g="${g}">${g}</button>`).join("");
 function renderCat(g){
   $("catalogGrid").innerHTML = CAT.filter(p => g==="Semua" || p.g===g).map(p => `
    <div class="col-md-6 col-lg-4"><div class="pitem">
-    <img src="${p.img}" alt="${p.n} Muno Folk" class="ph" loading="lazy">
+    ${imgTag(p.img, `${p.n} Muno Folk`)}
     <div class="body"><h3>${p.n}</h3>
      <div class="mb-2">${p.chips.map(c => `<span class="chip">${c}</span>`).join("")}</div>
      <p>${p.d}</p>
-     <a href="${TOKO}" target="_blank" rel="noopener">Lihat di Tokopedia</a>
+     <a href="${ TOKO}" target="_blank" rel="noopener">Lihat di Tokopedia</a>
     </div></div></div>`).join("");
 }
 $("filters").addEventListener("click", e => {
